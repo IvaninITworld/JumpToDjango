@@ -1,1 +1,2 @@
 hi, hanseunghun.
+django start
