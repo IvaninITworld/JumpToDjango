@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{#{% load static %}#}
+{#<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">#}
+
+{% block content %}
+    <div class="container my-3">
+        <table class="table">
+            <thead>
+            <tr class="table-dark">
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if question_list %}
+                {% for question in question_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            <a href="{% url 'pybo:detail' question.id %}">{{ question.subject }}</a>
+                        </td>
+                        <td>{{ question.create_date }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">질문이 없습니다.</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+        <a href="{% url 'pybo:question_create' %}" class="btn btn-primary">질문 등록하기</a>
+    </div>
+{% endblock content %}
+
+
+
+
+{#{% if question_list %}#}
+{#    <ul>#}
+{#        {% for question in question_list %}#}
+{#            <li>#}
+{# url 메서드를 사용하지 않고 바로 주소값으로 하는 방법 #}
+{#<a href="/pybo/{{ question.id }}">{{ question.subject }}</a>#}
+{##}
+{# 네임스페이스를 추가했기 때문에 그냥 detail 로 하면 에러가 발생할 수 있음 #}
+{#<a href="{% url 'detail' question.id %}">{{ question.subject }}</a>#}
+{##}
+{#                <a href="{% url 'pybo:detail' question.id %}">{{ question.subject }}</a>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#{% else %}#}
+{#    <p>No Questions in the list</p>#}
+{#{% endif %}#}
