@@ -5,13 +5,18 @@ from django.utils import timezone
 from .models import Question, Answer
 from .form import QuestionForm, AnswerForm
 from django.http import HttpResponseNotAllowed
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 
 def index(request):
+    page = request.GET.get('page', '1')
     question_list = Question.objects.order_by('-create_date')
-    context = {'question_list': question_list}
+    paginator = Paginator(question_list, 10)  # 10 page is open at once
+    page_obj = paginator.get_page(page)
+    # context = {'question_list': question_list}
+    context = {'question_list': page_obj}
     return render(request, 'pybo/question_list.html', context)
 
 
