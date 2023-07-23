@@ -16,10 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from pybo import views
+from pybo.views import base_views
 
-from pybo import views
+
+# pybo 에 views 에서 가져다 쓸때, -> django.urls 모듈로 include 를 가져와 사용하면 경로로 접근 가능
+# from pybo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pybo/', include('pybo.urls'))
+
+    # pybo 에 views 에서 가져다 쓸때,
+    # path('pybo/', views.index),
+
+    # djanog.urls 에서 inlcude 를 사용하여 경로로 접근
+    path('pybo/', include('pybo.urls')),
+    path('common/', include('common.urls')),
+    path('', base_views.index, name='index'),
 ]

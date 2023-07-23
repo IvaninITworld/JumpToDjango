@@ -2,23 +2,51 @@
 <!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-
-    <!-- Bootstrap CSS -->
+    <!-- pybo CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-
-    <title>Hello pybo!</title>
+    <title>Hello, pybo!</title>
 </head>
 <body>
-
+<!-- 네비게이션 바 -->
+{% include "navbar.html" %}
+{# 아래의 내용은 위에 있는 include 에 들어가 있다.#}
+{#<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">#}
+{#    <div class="container-fluid">#}
+{#        pybo:index 로 설정해야 하위 templates 에 모두 적용#}
+{#        <a href="{% url 'pybo:index' %}" class="navbar-brand">Pybo</a>#}
+{#        <button class="navbar-toggler" type="button"#}
+{#                data-bs-toggle="collapse"#}
+{#                data-bs-target="#navbarSupportedContent"#}
+{#                aria-controls="navbarSupportedContent"#}
+{#                aria-expanded="false"#}
+{#                aria-label="Toggle navigation">#}
+{#            <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{#        <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#            <ul class="navbar-nav me-auto mb-2 mb-lg-0">#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">로그인</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
-{% endblock content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<!-- 자바스크립트 시작 -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 끝 -->
 
 </body>
 </html>
