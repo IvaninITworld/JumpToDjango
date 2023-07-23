@@ -19,12 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'django-insecure-e0-#*1(6_&5pbk99_unkgv0!lp(@fzdc+k+jylw$g-avkqitg1'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 
 # Application definition
 
@@ -61,6 +65,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+
                 # 'django.middleware.csrf.CsrfViewMiddleware',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -72,6 +77,7 @@ TEMPLATES = [
                 # 'django.contrib.auth.middleware.AuthenticationMiddleware',
                 # 'django.contrib.messages.middleware.MessageMiddleware',
                 # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
             ],
         },
     },
@@ -88,6 +94,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -112,7 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
+
 TIME_ZONE = 'Asia/Seoul'
+
 
 USE_I18N = True
 
@@ -131,5 +140,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
